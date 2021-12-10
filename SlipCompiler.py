@@ -44,12 +44,12 @@ lit_type = ""
 for word in source_code:
     print(f"\nIn: \"{word}\"")
     # Handle literal types
-    if code_type == "lit_type":
+    if code_type == "type":
         print("Consuming literal type...")
         print("Expecting next input to be a literal value.")
 
         # Consume a literal of this word's type next
-        code_type = "literal"
+        code_type = "value"
         lit_type = word
 
         # Push the type opcode onto the instruction stack
@@ -58,7 +58,7 @@ for word in source_code:
         print(f"Out: {hex(opcode)}")
         continue
     # Handle literal values
-    if code_type == "literal":
+    if code_type == "value":
         print("Consuming literal value...")
 
         # Consume a generic command next
@@ -85,7 +85,7 @@ for word in source_code:
         print("Consuming generic command...")
         if word == "LIT":
             print("Expecting next input to be a literal type.")
-            code_type = "lit_type"
+            code_type = "type"
         opcode = instruction_opcodes[word]
         byte_code.append(opcode)
         print(f"Out: {hex(opcode)}")
