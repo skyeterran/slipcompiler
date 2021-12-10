@@ -92,7 +92,7 @@ for word in source_code:
         continue
 
 pure_bytes = bytes(byte_code)
-with open("Test.slb", "wb") as binary_file:
+with open("Test.vcr", "wb") as binary_file:
     binary_file.write(pure_bytes)
 
 print("\nWrote binary file to disk!")
